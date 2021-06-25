@@ -39,48 +39,11 @@
 //      let mut rng =  thread_rng();
 //      let number = rng.gen_range(0..=10)
 
-
-use rand::{Rng, thread_rng};
-
 fn main() {
-    
-    for pattern in std::env::args().skip(1) {
-        let parts = pattern.split(&['d', '+'][..]).collect::<Vec<&str>>();
-        let mut count = 1;
-        let mut sides = 1;
-        let mut constant = 0;
 
-        if parts.len() == 3 {
-            if let Some(c) = parse_int(parts[2]) {
-                constant = c
-            }
-        }
-        if parts.len() >= 2 {
-            if let Some(a) = parse_int(parts[1]) {
-                 sides=a;
-            }
-        }
-        if parts.len() >= 1 {
-            if let Some(a) = parse_int(parts[0]) {
-                 count=a;
-            }
-        }
-        roll(sides, count, constant);
-    }
-}
+    // Get arguments
 
-fn parse_int(str: &str) -> Option<i32> {
-    match str.parse::<i32>() {
-        Ok(x) => Some(x),
-        Err(_) => None,
-    }
-}
+    // Parse arguments
 
-fn roll(sides: i32, count: i32, constant: i32) {
-    let mut rng =  thread_rng();
-    let mut total = constant;
-    for _ in 0..count {
-        total += rng.gen_range(0..=sides)
-    }
-    println!("{}d{}+{} = {} ", count, sides, constant,  total);
+    // Perform Roll
 }
