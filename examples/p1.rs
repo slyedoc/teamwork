@@ -40,10 +40,14 @@
 //      let number = rng.gen_range(0..=10)
 
 
-use rand::{Rng, thread_rng};
+// Other Improvements
+// - Handle more than one argument for dice
 
-fn main() {
-    
+use rand::{Rng, thread_rng};
+use regex::Regex;
+
+fn _main_old() {
+
     for pattern in std::env::args().skip(1) {
         let parts = pattern.split(&['d', '+'][..]).collect::<Vec<&str>>();
         let mut count = 1;
@@ -51,28 +55,34 @@ fn main() {
         let mut constant = 0;
 
         if parts.len() == 3 {
-            if let Some(c) = parse_int(parts[2]) {
-                constant = c
-            }
+            constant = parse_or_default(parts[2], constant);
         }
         if parts.len() >= 2 {
-            if let Some(a) = parse_int(parts[1]) {
-                 sides=a;
-            }
+            sides = parse_or_default(parts[1], sides)
         }
         if parts.len() >= 1 {
-            if let Some(a) = parse_int(parts[0]) {
-                 count=a;
-            }
+           count = parse_or_default(parts[0], count);
         }
         roll(sides, count, constant);
     }
 }
 
-fn parse_int(str: &str) -> Option<i32> {
+fn main() {
+    for pattern in std::env::args().skip(1) {
+        let re = Regex::new(r"(?P<count>\d+)*d(?P<sides>\d+)[+]*(?P<constant>\d+)*").unwrap();
+        for caps in re.captures_iter(&*pattern) {
+            let count = parse_or_default( &caps["count"], 1);
+            let sides = parse_or_default( &caps["sides"], 1);
+            let constant = parse_or_default( &caps["constant"], 0);
+            roll(sides, count, constant);
+        }
+    }
+}
+
+fn parse_or_default(str: &str, default: i32) -> i32 {
     match str.parse::<i32>() {
-        Ok(x) => Some(x),
-        Err(_) => None,
+        Ok(x) => x,
+        Err(_) => default,
     }
 }
 
