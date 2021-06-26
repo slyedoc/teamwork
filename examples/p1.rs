@@ -9,10 +9,9 @@
 // I would like you to create me a commandline tool that can do these for me, I want something like:
 
 //$roll 2d12+2
-//16
+// output:  2d12+2 = 16
 
 // Possible inputs: 1d3, 2d6, 1d12+12
-
 
 // I would like you to create your own repo, you need the practice with git.
 
