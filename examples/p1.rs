@@ -4,30 +4,38 @@
 //
 // I would like you to create me a commandline tool that can do these for me, I want something like:
 
-//$roll 2d12+2
+//$pass-gen
 //
 // Things to think about
 
-// How do you generate random numbers (using crust apirate rand)
+// What characters do you want in passwords you have to type, uppercase, and lowercase.
+// how would you store them
+
+// How do you generate random numbers (using crate rand)
 //      use rand::{Rng, thread_rng};
 //      let mut rng =  thread_rng();
 //      let number = rng.gen_range(0..=10)
 
+use rand::{Rng, thread_rng};
+
 fn main() {
 
-    let character = vec![];
-
-    for x in 0..26 {
-        character.push( char::to_digit('a').unwrap()  + x );
-    }
-
-    println!("character: {}", character);
-
-
     // How long do we want the password
+    const PASSWORD_LEN: usize = 30;
 
     // Build list of possable characters
+    const CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
+                            abcdefghijklmnopqrstuvwxyz\
+                            0123456789)(*&^%$#@!~";
 
     // Create password
+    let mut rng = thread_rng();
+    let password: String = (0..PASSWORD_LEN)
+        .map(|_| {
+            let idx = rng.gen_range(0..CHARSET.len());
+            CHARSET[idx] as char
+        })
+        .collect();
 
+    println!("{:?}", password);
 }
