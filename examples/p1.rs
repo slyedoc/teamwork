@@ -8,12 +8,21 @@
 //
 // Things to think about
 
-// How do you generate random numbers (using crate rand)
+// How do you generate random numbers (using crust apirate rand)
 //      use rand::{Rng, thread_rng};
 //      let mut rng =  thread_rng();
 //      let number = rng.gen_range(0..=10)
 
 fn main() {
+
+    let character = vec![];
+
+    for x in 0..26 {
+        character.push( char::to_digit('a').unwrap()  + x );
+    }
+
+    println!("character: {}", character);
+
 
     // How long do we want the password
 

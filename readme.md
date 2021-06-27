@@ -10,3 +10,6 @@ They dont know about branches yet =-)
 - [The Rust Programing Book](https://doc.rust-lang.org/book/index.html)
 - [The Rust CLI Book](https://rust-cli.github.io/book/index.html)
 
+## Data
+
+- [List of public apis](https://github.com/public-apis/public-apis)
