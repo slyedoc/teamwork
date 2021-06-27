@@ -21,7 +21,7 @@
 
 // Things to think about
 
-// How do you read a command line arguments?
+// How do you read commandline arguments?
 //      You will need std::env::args(), look it up on docs.rs
 //
 // How do you split a string up, we will be doing alot of this later
