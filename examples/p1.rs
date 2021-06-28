@@ -16,26 +16,23 @@
 //      let mut rng =  thread_rng();
 //      let number = rng.gen_range(0..=10)
 
-use rand::{Rng, thread_rng};
+use rand::{thread_rng, Rng};
 
 fn main() {
+    const PASSWORD_LENGTH_MIN: u8 = 8;
+    const PASSWORD_LENGTH_MAX: u8 = 15;
+    const CHAR_SET: &[u8] =
+        b"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz123456789~!@#$%^&*)(";
 
-    // How long do we want the password
-    const PASSWORD_LEN: usize = 30;
-
-    // Build list of possable characters
-    const CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
-                            abcdefghijklmnopqrstuvwxyz\
-                            0123456789)(*&^%$#@!~";
-
-    // Create password
     let mut rng = thread_rng();
-    let password: String = (0..PASSWORD_LEN)
-        .map(|_| {
-            let idx = rng.gen_range(0..CHARSET.len());
-            CHARSET[idx] as char
-        })
-        .collect();
 
-    println!("{:?}", password);
+    let length = rng.gen_range(PASSWORD_LENGTH_MIN..PASSWORD_LENGTH_MAX);
+
+    let mut result = String::from("");
+
+    for _ in 0..length {
+        let number = rng.gen_range(0..CHAR_SET.len());
+        result.push(CHAR_SET[number] as char);
+    }
+    println!("{}", result);
 }

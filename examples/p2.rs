@@ -35,8 +35,30 @@
 // What is a &str and String, how are they deferent?
 //
 // How do you generate random numbers (using crate rand again)
+/*
 
+
+2d12+2
+
+2
+12+2
+
+*/
 fn main() {
+    let args = std::env::args().skip(1);
+    for x in args {
+
+        let dice_count = 1;
+        let sides = 1;
+        let constant = 0;
+        let parts = x.split('d');
+
+        for p in parts {
+            println!("{}", p);
+        }
+        dice_count = parts[0].parse::<i32>.unwrap();
+    }
+    
 
     // Get arguments
 
