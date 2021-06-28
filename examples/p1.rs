@@ -16,23 +16,29 @@
 //      let mut rng =  thread_rng();
 //      let number = rng.gen_range(0..=10)
 
-use rand::{thread_rng, Rng};
+use rand::Rng;
 
 fn main() {
-    const PASSWORD_LENGTH_MIN: u8 = 8;
-    const PASSWORD_LENGTH_MAX: u8 = 15;
-    const CHAR_SET: &[u8] =
-        b"ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjklmnpqrstuvwxyz123456789~!@#$%^&*)(";
 
-    let mut rng = thread_rng();
+    let mut rng = rand::thread_rng();
+    let length = rng.gen_range(10..15);
+    let letters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k' ];
 
-    let length = rng.gen_range(PASSWORD_LENGTH_MIN..PASSWORD_LENGTH_MAX);
+    // using iterators
+    let password_iter = (0..length)
+        .map(|_| {
+            let random_index = rng.gen_range(0..letters.len());
+            letters[random_index]
+        }).collect::<String>();
 
-    let mut result = String::from("");
-
+    // Same as above, but using a for loop instead
+    let mut password_for = "".to_string();
     for _ in 0..length {
-        let number = rng.gen_range(0..CHAR_SET.len());
-        result.push(CHAR_SET[number] as char);
+        let random_index = rng.gen_range( 0..letters.len() );
+        password_for.push(letters[random_index]);
     }
-    println!("{}", result);
+
+    println!("iter = {:?}", password_iter);
+    println!("for = {:?}", password_for);
 }
+

@@ -13,7 +13,6 @@
 
 // Possible inputs: 1d3, 2d6, 1d12+12
 
-
 // I would like you to create your own repo, you need the practice with git.
 
 // 1. Create a new cargo program, name it roll
@@ -47,18 +46,16 @@
 fn main() {
     let args = std::env::args().skip(1);
     for x in args {
+        let mut dice_count = 1;
+        let mut sides = 1;
+        let mut constant = 0;
+        let parts = x.split('d').collect::<Vec<&str>>();
+        ();
 
-        let dice_count = 1;
-        let sides = 1;
-        let constant = 0;
-        let parts = x.split('d');
-
-        for p in parts {
-            println!("{}", p);
-        }
-        dice_count = parts[0].parse::<i32>.unwrap();
+        println!("{:?}", parts);
+        dice_count = parts[0].parse::<i32>().unwrap();
+        dice_count = parts[0].parse::<i32>().unwrap();
     }
-    
 
     // Get arguments
 

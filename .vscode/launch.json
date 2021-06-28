@@ -1,0 +1,156 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'teamwork'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=teamwork",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "teamwork",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'teamwork'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=teamwork",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "teamwork",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'p2'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=p2",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p2",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'p2'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=p2",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p2",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'p1'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=p1",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p1",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'p1'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=p1",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p1",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug example 'p3'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--example=p3",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p3",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in example 'p3'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--example=p3",
+                    "--package=teamwork"
+                ],
+                "filter": {
+                    "name": "p3",
+                    "kind": "example"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

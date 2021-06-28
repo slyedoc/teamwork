@@ -8,13 +8,3 @@
 
     given a array of T, sort it
 */
-
-pub const NEWS_ARTICLES = "https://api.spaceflightnewsapi.net/v3/articles";
-
-#[tokio::main]
-fn main() {
-    let 
-}
-
-
-fn get_articles
